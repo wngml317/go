@@ -2,50 +2,30 @@ package main
 
 import "fmt"
 
-type subscriber struct{
-	name string
-	rate int
-	active bool
+type part struct {
+	description string
+	count int
+}
+
+func showInfo(p part)  {
+	fmt.Println("Description : ", p.description)
+	fmt.Println("Count : ", p.count)
+}
+
+func minimumOrder(description string) part  {
+	var p part
+	p.description = description
+	p.count = 1000
+	return p
 }
 
 func main()  {
-	var s1 subscriber
-	fmt.Printf("%#v\n", s1)
-
-	s1.name = "kim"
-	s1.rate = 5000
-	s1.active = false
-
-	fmt.Printf("%s\n", s1.name)
-	fmt.Println(s1.rate)
-	fmt.Println(s1.active)
+	p := minimumOrder("Hex bolts")
+	fmt.Println(p.description, p.count)
 	/*
-	var subscriber struct{
-		name string
-		rate int
-		active bool
-	}
-	fmt.Printf("%#v\n", subscriber)
-
-	subscriber.name = "kim"
-	subscriber.rate = 5000
-	subscriber.active = false
-
-	fmt.Printf("%s\n", subscriber.name)
-	fmt.Println(subscriber.rate)
-	fmt.Println(subscriber.active)
+	var bolts part
+	bolts.description = "Hex bolts"
+	bolts.count = 100
+	showInfo(bolts)
 	*/
-	/*
-	subscriber := map[string]bool{}
-	subscriber["name"] = "kim"
-	subscriber["rate"] = 5000
-	subscriber["active"] = false
-	fmt.Println("test")
-
-	subscriber := []string{}
-	subscriber = append(subscriber,"kim")
-	subscriber = append(subscriber,5000)
-	subscriber = append(subscriber,false)
-	fmt.Println("test")
-	*/
-}			
+}
